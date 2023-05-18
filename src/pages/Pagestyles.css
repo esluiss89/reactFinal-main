@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue&family=Roboto:wght@700&display=swap');
+
+.cardContainerDesc {
+  width: 90%;
+  margin-top: 5%;
+  font-family: 'Roboto', sans-serif;
+  border: solid;
+  border-width: 1px;
+  border-color: rgb(240, 240, 240);
+  border-bottom-right-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  margin-left: 30px;
+}
+
+.imgDesc {
+  height: 300px;
+  margin: 10px;
+}
+
+.containerDesc {
+  margin-left: 30px;
+  margin-right: 20px;
+  font-family: 'Comic Neue', cursive;
+}
+
+.tituloPastel {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  margin-top: 10px;
+}
+
+.tituloPastel:first-letter {
+  text-transform: uppercase;
+}
+
+.containerCarrito {
+  border: solid;
+  border-width: 1px;
+  margin: 20px;
+  text-align: center;
+}
+
+.containerDetalles {
+  border: solid;
+  border-width: 0.5px;
+  padding: 10px;
+  background-color: whitesmoke;
+}
+
+.tituloCarrito {
+  font-family: 'Roboto', sans-serif;
+}
+
+.productos {
+  border: solid;
+  border-width: 0.5px;
+  background-color: white;
+  font-family: 'Comic Neue', cursive;
+}
+
+.unidad {
+  display: flex;
+  justify-content: space-around;
+}
+
+.item {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.item2 {
+  font-size: 25px;
+  margin-left: 20px;
+}
+
+.item2:first-letter {
+  text-transform: uppercase;
+}
+
+.item3 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.item4 {
+  margin: 20px;
+  font-size: 25px;
+}
+
+.buttonPagar {
+  background-color: red;
+  font-family: 'Comic Neue', cursive;
+  margin-left: 15px;
+  color: white;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  display: inline-block;
+  outline: 0;
+  cursor: pointer;
+  padding: 5px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  vertical-align: middle;
+  border: 1px solid;
+  border-radius: 6px;
+  color: #ffffff;
+  background-color: #a4322e;
+  border-color: #1b1f2326;
+  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px 0px inset;
+  transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  transition-property: color, background-color, border-color;
+
+}
+
+.buttonPagar:hover {
+  background-color: #2c974b;
+  border-color: #1b1f2326;
+  transition-duration: 0.1s;
+}
+
+.mas {
+  background-color: #2c974b;
+  color: #ffffff;
+  border-width: 0.5px;
+}
+
+.menos {
+  background-color: #97332c;
+  color: #ffffff;
+  border-width: 0.5px;
+}
+
+.contador {
+  margin: 10px;
+}
+

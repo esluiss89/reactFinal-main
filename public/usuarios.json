@@ -1,0 +1,24 @@
+[
+    {
+        "userId": 1,
+        "nombre": "Luis",
+        "apellido": "Espinoza",
+        "rut": "11111111-1",
+        "telefono": "56978945689",
+        "correo": "holamundo@gmail.cl",
+        "contraseña": "123456",
+        "login": "false",
+        "favorito": []
+    },
+    {
+        "userId": 2,
+        "nombre": "Alexandra",
+        "apellido": "Nieto",
+        "rut": "22222222-2",
+        "telefono": "56978945688",
+        "correo": "chaomundo@gmail.cl",
+        "contraseña": "654321",
+        "login": "false",
+        "favorito": []
+    }
+]

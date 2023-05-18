@@ -1,0 +1,66 @@
+[
+  {
+    "desc": "Delicioso pastel de chocolate con relleno de crema y cubierto con glaseado de chocolate.",
+    "id": "C001",
+    "img": "https://i.postimg.cc/j59cFZhb/Chocolate.webp",
+    "ingredients": ["Harina", "Azúcar", "Huevos", "Cacao", "Crema"],
+    "name": "Pastel de Chocolate",
+    "price": 4500
+  },
+  {
+    "desc": "Pastel de fresa con capas de bizcocho esponjoso, relleno de crema de fresa y decorado con fresas frescas.",
+    "id": "C002",
+    "img": "https://i.postimg.cc/Y9JN3jp2/fresa.jpg",
+    "ingredients": ["Harina", "Azúcar", "Huevos", "Fresas", "Crema"],
+    "name": "Pastel de Fresa",
+    "price": 5200
+  },
+  {
+    "desc": "Delicioso pastel de vainilla con relleno de crema de vainilla y cubierto con glaseado de mantequilla.",
+    "id": "C003",
+    "img": "https://i.postimg.cc/43gr8Nx5/vainilla.jpg",
+    "ingredients": ["Harina", "Azúcar", "Huevos", "Vainilla", "Crema"],
+    "name": "Pastel de Vainilla",
+    "price": 4000
+  },
+  {
+    "desc": "Pastel de zanahoria con nueces y cubierto con glaseado de queso crema.",
+    "id": "C004",
+    "img": "https://i.postimg.cc/pX8vkSBP/zanahoria2.webp",
+    "ingredients": ["Harina", "Azúcar", "Zanahoria", "Nueces", "Queso crema"],
+    "name": "Pastel de Zanahoria",
+    "price": 4800
+  },
+  {
+    "desc": "Pastel de manzana con una base de masa crujiente, relleno de manzanas frescas y especias, y cubierto con crumble de canela.",
+    "id": "C005",
+    "img": "https://i.postimg.cc/9QpvnHwH/manzana.jpg",
+    "ingredients": ["Harina", "Azúcar", "Manzanas", "Canela","Azúcar flor"],
+    "name": "Pastel de Manzana",
+    "price": 4300
+  },
+  {
+    "desc": "Pastel de queso suave y cremoso con una base de galleta triturada y cubierto con una deliciosa salsa de frutos rojos.",
+    "id": "C009",
+    "img": "https://i.postimg.cc/NGmCnvZC/frutosrojos.webp",
+    "ingredients": ["Harina","Galletas", "Queso crema", "Azúcar", "Frutos rojos"],
+    "name": "Pastel de Queso con Frutos Rojos",
+    "price": 5900
+  },
+  {
+    "desc": "Pastel de limón con una base de galleta triturada, relleno de crema de limón y decorado con merengue.",
+    "id": "C007",
+    "img": "https://i.postimg.cc/gcV4Dq6f/limon.jpg",
+    "ingredients": ["Harina", "Azúcar", "Huevos", "Limón", "Crema"],
+    "name": "Pastel de Limón",
+    "price": 4800
+  },
+  {
+    "desc": "Pastel de nueces y caramelo con una textura suave y un delicioso sabor a nueces caramelizadas.",
+    "id": "C008",
+    "img": "https://i.postimg.cc/ncwmYCTy/nueces-y-caramelo.jpg",
+    "ingredients": ["Harina", "Azúcar", "Huevos", "Nueces", "Caramelo"],
+    "name": "Pastel de Nueces y Caramelo",
+    "price": 5100
+  }
+]

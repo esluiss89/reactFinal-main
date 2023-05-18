@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue&family=Roboto:wght@700&display=swap');
+
+.tituloPastel {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.tituloPastel:first-letter {
+  text-transform: uppercase;
+}
+
+.buttonVerMas {
+  background-color: #f52d5d;
+  font-family: 'Comic Neue', cursive;
+  margin-left: 15px;
+  color: rgb(105, 59, 105);
+  margin-bottom: 15px;
+  border-radius: 10px;
+  display: inline-block;
+  outline: 0;
+  cursor: pointer;
+  padding: 5px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  vertical-align: middle;
+  border: 1px solid;
+  border-radius: 6px;
+  color: #ffffff;
+  background-color: #f52d5d;
+  border-color: #1b1f2326;
+  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px 0px inset;
+  transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  transition-property: color, background-color, border-color;
+}
+
+.buttonVerMas:hover {
+  background-color: #f9547b;
+  border-color: #1b1f2326;
+  transition-duration: 0.1s;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.price {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-family: 'Roboto', sans-serif;
+  margin-top: 15px;
+}
+
+.footer {
+  border-top: solid;
+  border-width: 1px;
+  border-color: #dbdbdb;
+}
+
+.contenedorPastel {
+  margin: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: auto;
+  grid-gap: 1rem;
+}
+
+.card {
+  border-radius: 10px;
+  box-shadow: rgba(110, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.buttonAnadir {
+  background-color: #d41e4f;
+  font-family: 'Comic Neue', cursive;
+  margin-left: 15px;
+  color: white;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  display: inline-block;
+  outline: 0;
+  cursor: pointer;
+  padding: 5px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  vertical-align: middle;
+  border: 1px solid;
+  border-radius: 6px;
+  color: #ffffff;
+  background-color: #d41e4f;
+  border-color: #1b1f2326;
+  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px 0px inset;
+  transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  transition-property: color, background-color, border-color;
+}
+
+.buttonAnadir:hover {
+  background-color: #f9547b;
+  border-color: #1b1f2326;
+  transition-duration: 0.1s;
+}
+
+.navbar {
+  background-color: #f52d5d;
+  justify-content: space-between;
+  font-family: 'Comic Neue', cursive;
+  display: flex; /* Agregado */
+  align-items: center; /* Agregado */
+}
+
+.navbar a {
+  color: white;
+  font-size: 1.5rem;
+  font-family: 'Comic Neue', cursive;
+  margin-left: 10px;
+}
+
+.header {
+  background: linear-gradient(rgba(249, 71, 94, 0.7), rgba(199, 27, 48, 0.7));
+  background-image: url(https://i.postimg.cc/WbCXXLmB/pastel-abstract-background.jpg);
+  background-size: cover;
+  font-family: 'Comic Neue', cursive;
+  height: 120px;
+  text-shadow: 2px 2px #000000;
+  border: solid;
+  border-width: 1px;
+  border-color: #f52d5d;
+}
+
+.titulo1 {
+  margin: 10px;
+  color: white;
+  font-family: 'Comic Neue', cursive;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.titulo2 {
+  margin: 10px;
+  color: white;
+  font-family: 'Comic Neue', cursive;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+
+
+
+.navbar .options {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .options a {
+  margin-left: 10px;
+}
+
+.container {
+  max-width: 500px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: #e35656;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #c07d7d;
+  border-radius: 4px;
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+
+
+.profile {
+  max-width: 400px;
+  margin: 30px auto;
+  padding: 20px;
+  border: 1px solid #bd5f5f;
+  border-radius: 5px;
+  background-color: #ff6c78;
+  color: #050404;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #0a0909;
+}
+
+.user-info {
+  margin-top: 20px;
+}
+
+.user-info p {
+  margin: 5px 0;
+}
+
+.user-info p:first-child {
+  font-weight: bold;
+  color: #0a0909;
+}
+
+.user-info p:nth-child(even) {
+  color: #0c0909;
+}
+
+.user-info p:last-child {
+  margin-bottom: 0;
+}
+
