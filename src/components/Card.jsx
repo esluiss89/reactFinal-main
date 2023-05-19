@@ -29,7 +29,7 @@ const CardPastel = () => {
                 <h2 className="price">$ {pastel.price}</h2>
                 <div className="buttons">
                   <button
-                    className="buttonVerMas" onClick={() => navigate(`/pizzas/${pastel.id}`)}>  Ver más... 
+                    className="buttonVerMas" onClick={() => navigate(`/pastel/${pastel.id}`)}>  Ver más... 
                   </button>
                   <button
                     className="buttonAnadir"
