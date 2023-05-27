@@ -1,0 +1,35 @@
+.profile {
+  max-width: 400px;
+  margin: 30px auto;
+  padding: 20px;
+  border: 1px solid #bd5f5f;
+  border-radius: 5px;
+  background-color: #ff6c78;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #0a0909;
+}
+
+.user-info {
+  margin-top: 20px;
+}
+
+.user-info p {
+  margin: 5px 0;
+}
+
+.user-info p:first-child {
+  font-weight: bold;
+  color: #0a0909;
+}
+
+.user-info p:nth-child(even) {
+  color: #0c0909;
+}
+
+.user-info p:last-child {
+  margin-bottom: 0;
+}

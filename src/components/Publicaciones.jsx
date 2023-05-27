@@ -4,9 +4,10 @@ import "./Components.css";
 const Publicaciones = () => {
   const [titulo, setTitulo] = useState('');
   const [precio, setPrecio] = useState('');
-  const [descripcion, setDescripcion] = useState('');
+  const [ingredientes, setIngredientes] = useState('');
   const [foto, setFoto] = useState('');
   const [pastelesData, setPastelesData] = useState([]);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,28 +23,47 @@ const Publicaciones = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const savedPasteles = localStorage.getItem('pasteles');
+    if (savedPasteles) {
+      setPastelesData(JSON.parse(savedPasteles));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('pasteles', JSON.stringify(pastelesData));
+  }, [pastelesData]);
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    
+
     const nuevoPastel = {
-      desc: descripcion,
+      desc: '',
       id: `C${pastelesData.length + 1}`,
       img: foto,
-      ingredients: ["Harina", "Galletas", "Queso crema", "Azúcar", "Frutos rojos"],
+      ingredients: ingredientes.split(',').map((ingrediente) => ingrediente.trim()),
       name: titulo,
-      price: parseFloat(precio)
+      price: parseFloat(precio),
     };
 
-    setPastelesData([...pastelesData, nuevoPastel]);
+    const nuevosPasteles = [...pastelesData, nuevoPastel];
+    setPastelesData(nuevosPasteles);
+    localStorage.setItem('pasteles', JSON.stringify(nuevosPasteles));
 
     setTitulo('');
     setPrecio('');
-    setDescripcion('');
+    setIngredientes('');
     setFoto('');
+
+    setShowSuccess(true);
+
+    setTimeout(() => {
+      setShowSuccess(false);
+    }, 3000);
   };
 
   return (
-    <div className="container">
+    <div className="container7">
       <h2>Publicar Nuevo Pastel</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
@@ -71,13 +91,13 @@ const Publicaciones = () => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="descripcion">Descripción:</label>
+          <label htmlFor="ingredientes">Ingredientes:</label>
           <textarea
-            id="descripcion"
-            name="descripcion"
-            placeholder="Ingresa la descripción del pastel"
-            value={descripcion}
-            onChange={(e) => setDescripcion(e.target.value)}
+            id="ingredientes"
+            name="ingredientes"
+            placeholder="Ingresa los ingredientes separados por comas (ejemplo: Harina, Azúcar, Huevos)"
+            value={ingredientes}
+            onChange={(e) => setIngredientes(e.target.value)}
             required
           ></textarea>
         </div>
@@ -95,6 +115,12 @@ const Publicaciones = () => {
         </div>
         <button type="submit">Publicar</button>
       </form>
+
+      {showSuccess && (
+        <div className="success-message">
+          <p>Tu publicación se ha realizado con éxito.</p>
+        </div>
+      )}
     </div>
   );
 };

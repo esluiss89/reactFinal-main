@@ -6,6 +6,7 @@
         "rut": "11111111-1",
         "telefono": "56978945689",
         "correo": "holamundo@gmail.cl",
+        "Direccion": "exequiel moraga 0150, Colina",
         "contraseña": "123456",
         "login": "false",
         "favorito": []
@@ -17,6 +18,7 @@
         "rut": "22222222-2",
         "telefono": "56978945688",
         "correo": "chaomundo@gmail.cl",
+        "Direccion": "los altos de san miguel 0120, Colina",
         "contraseña": "654321",
         "login": "false",
         "favorito": []

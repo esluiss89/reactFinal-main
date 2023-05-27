@@ -10,6 +10,8 @@ import Publicar from "./components/Publicaciones";
 import Perfil from "./components/Perfil";
 import { PasteleriaFunction } from "./PasteleriaContext";
 import { AuthProvider } from "./AuthContext";
+import Dashboard from "./pages/Dashboard";
+import Favoritos from "./components/Favoritos";
 
 export default function App() {
   return (
@@ -25,13 +27,11 @@ export default function App() {
             <Route path="/publicaciones" element={<Publicar />} />
             <Route path="/perfil" element={<Perfil />} />
             <Route path="/carrito" element={<DetallePedido />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/favoritos" element={<Favoritos />} />
           </Routes>
         </PasteleriaFunction>
       </AuthProvider>
     </Router>
   );
 }
-
-
-
-

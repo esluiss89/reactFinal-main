@@ -9,11 +9,14 @@
   text-transform: uppercase;
 }
 
+.shared-style {
+  color: #050404;
+}
+
 .buttonVerMas {
   background-color: #f52d5d;
   font-family: 'Comic Neue', cursive;
   margin-left: 15px;
-  color: rgb(105, 59, 105);
   margin-bottom: 15px;
   border-radius: 10px;
   display: inline-block;
@@ -27,7 +30,7 @@
   border: 1px solid;
   border-radius: 6px;
   color: #ffffff;
-  background-color: #f52d5d;
+  background-color: #582df5;
   border-color: #1b1f2326;
   box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px 0px inset;
   transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
@@ -87,28 +90,29 @@
   font-weight: 500;
   line-height: 20px;
   vertical-align: middle;
-  border: 1px solid;
-  border-radius: 6px;
-  color: #ffffff;
-  background-color: #d41e4f;
-  border-color: #1b1f2326;
-  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px 0px inset;
-  transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
-  transition-property: color, background-color, border-color;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  box-shadow: 0px 1px 0px 0px rgba(27, 31, 35, 0.04), inset 0px 1px 0px 0px rgba(255, 255, 255, 0.25);
+  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1), border-color 0.2s cubic-bezier(0.3, 0, 0.5, 1), color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
 }
 
 .buttonAnadir:hover {
   background-color: #f9547b;
-  border-color: #1b1f2326;
-  transition-duration: 0.1s;
+  border-color: #1b1f23;
 }
+
+.buttonAnadir:active {
+  background-color: #ffffff;
+  color: #bd5973;
+  border-color: #8b5060;
+}
+
 
 .navbar {
   background-color: #f52d5d;
   justify-content: space-between;
   font-family: 'Comic Neue', cursive;
-  display: flex; /* Agregado */
-  align-items: center; /* Agregado */
+  display: flex; 
+  align-items: center;
 }
 
 .navbar a {
@@ -130,15 +134,7 @@
   border-color: #f52d5d;
 }
 
-.titulo1 {
-  margin: 10px;
-  color: white;
-  font-family: 'Comic Neue', cursive;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-}
-
+.titulo1,
 .titulo2 {
   margin: 10px;
   color: white;
@@ -147,9 +143,6 @@
   justify-content: center;
   display: flex;
 }
-
-
-
 
 .navbar .options {
   display: flex;
@@ -160,7 +153,7 @@
   margin-left: 10px;
 }
 
-.container {
+.container7 {
   max-width: 500px;
   margin: 30px auto;
   padding: 20px;
@@ -194,43 +187,111 @@ button[type="submit"] {
   cursor: pointer;
 }
 
+/* Estilos del filtro por letras */
+.filtro-container2 {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
 
+.filtro-input {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border: 1px solid #c07d7d;
+  border-radius: 4px;
+}
 
+.filtro-input input[type="text"] {
+  padding: 8px;
+  width: 200px;
+  border: 1px solid #161414;
+  border-radius: 4px;
+  background-color: #882f47;
+  color: #ffffff;
+  margin-right: 8px;
+}
 
-.profile {
-  max-width: 400px;
-  margin: 30px auto;
-  padding: 20px;
-  border: 1px solid #bd5f5f;
-  border-radius: 5px;
-  background-color: #ff6c78;
+.filtro-icono {
   color: #050404;
 }
 
-h2 {
+/* Estilos adicionales para el filtro de favoritos */
+.filtro-favoritos {
+  margin-left: 8px;
+  background-color: #ffffff;
+  color: #050404;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.filtro-favoritos label {
+  margin-right: 4px;
+}
+
+.filtro-favoritos input[type="checkbox"] {
+  margin-right: 4px;
+}
+
+/* Agregar espacio entre filtros */
+.filtro-input > * + * {
+  margin-left: 8px;
+}
+
+
+
+
+.carrito h1 {
+  font-size: 20px;
+}
+
+.success-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
   text-align: center;
-  margin-bottom: 20px;
-  color: #0a0909;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border: 2px solid red; /* Agregado: borde rojo */
 }
 
-.user-info {
-  margin-top: 20px;
+.success-message p {
+  font-size: 18px;
+  color: #1a1618;
 }
 
-.user-info p {
-  margin: 5px 0;
+
+.pink-button {
+  background-color: pink;
+  color: white;
+
+&:hover {
+    background-color: hotpink;
+  }
 }
 
-.user-info p:first-child {
-  font-weight: bold;
-  color: #0a0909;
+
+
+.buttonEliminar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: pink;
+  border: none;
+  cursor: pointer;
 }
 
-.user-info p:nth-child(even) {
-  color: #0c0909;
+.buttonEliminar:hover {
+  background-color: lightpink;
 }
 
-.user-info p:last-child {
-  margin-bottom: 0;
+.trash-icon {
+  color: white;
+  font-size: 16px;
 }
-

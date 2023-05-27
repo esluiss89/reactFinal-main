@@ -1,0 +1,71 @@
+/* styles.css */
+
+/* Estilos generales */
+.favorite-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  flex-direction: row-reverse;
+}
+
+.favorite-title {
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 20px;
+  width: 100%;
+  color: #ff4081;
+  text-transform: uppercase;
+}
+
+.favorite-card {
+  width: calc(50% - 20px);
+  margin: 10px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.favorite-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.favorite-card h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.favorite-card p {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.favorite-price {
+  font-weight: bold;
+  font-size: 20px;
+  color: #ff4081;
+  margin-bottom: 10px;
+}
+
+.favorite-button {
+  background-color: #ff4081;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.favorite-button:hover {
+  background-color: #ff669d;
+}
+
+@media (max-width: 600px) {
+  .favorite-card {
+    width: 100%;
+    margin-right: 0;
+  }
+}

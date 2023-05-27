@@ -1,16 +1,42 @@
-import React from "react";
-import { useContext } from "react";
-import PasteleriaContext from "../PasteleriaContext";
-import { useEffect } from "react";
+import React, { useContext, useEffect, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
+import { PasteleriaContext } from "../PasteleriaContext";
+import { AuthContext } from "../AuthContext";
 
-const DetallePedido = () => {
-  const { carrito, sumarPastel, restarrPastel } = useContext(PasteleriaContext);
-  const total = carrito.reduce(
-    (a, { count, price }) => a + price * count,
-    0
-  );
+const Cart = () => {
+  const { carrito, sumarPastel, restarPastel, setCarrito } = useContext(PasteleriaContext);
+  const { usuario } = useContext(AuthContext);
+  const total = carrito.reduce((a, { count, price }) => a + price * count, 0);
+  const navigate = useNavigate();
 
-  useEffect(() => { }, [carrito]);
+  const guardarCarrito = useCallback(() => {
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+  }, [carrito]);
+
+  useEffect(() => {
+    const storedCarrito = localStorage.getItem("carrito");
+    if (storedCarrito) {
+      const parsedCarrito = JSON.parse(storedCarrito);
+      setCarrito(parsedCarrito);
+    }
+  }, [setCarrito]);
+
+  useEffect(() => {
+    guardarCarrito();
+  }, [carrito, guardarCarrito]);
+
+  const handlePagar = () => {
+    if (usuario) {
+      if (carrito.length > 0) {
+        alert("Redireccionando a tu medio de pago");
+      } else {
+        alert("No tienes pasteles seleccionados para pagar");
+      }
+    } else {
+      alert("Debes iniciar sesión para pagar");
+      navigate("/"); // Redirige al usuario al componente Inicio.jsx
+    }
+  };
 
   return (
     <>
@@ -25,23 +51,21 @@ const DetallePedido = () => {
                   <h6 className="item2">{product.name}</h6>
                 </div>
                 <div className="item3">
-                  <h6 className="item4">
-                    ${(product.price * product.count)}
-                  </h6>
-                  <button
-                    className="menos"
-                    onClick={() => restarrPastel(i)}>-
+                  <h6 className="item4">${product.price * product.count}</h6>
+                  <button className="menos" onClick={() => restarPastel(i)}>
+                    -
                   </button>
                   <h5 className="contador">{product.count}</h5>
-                  <button
-                    className="mas"
-                    onClick={() => sumarPastel(i)}>+
+                  <button className="mas" onClick={() => sumarPastel(i)}>
+                    +
                   </button>
                 </div>
               </div>
             ))}
-            <h2>Total: ${(total)}</h2>
-            <button className="buttonPagar">Ir a Pagar </button>
+            <h2>Total: ${total}</h2>
+            <button className="buttonPagar" onClick={handlePagar}>
+              Ir a Pagar
+            </button>
           </div>
         </div>
       </div>
@@ -49,4 +73,4 @@ const DetallePedido = () => {
   );
 };
 
-export default DetallePedido;
+export default Cart;

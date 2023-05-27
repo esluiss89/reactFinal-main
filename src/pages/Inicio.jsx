@@ -1,13 +1,13 @@
 import React, { useContext, useState } from "react";
-import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "./Inicio.css";
 import { AuthContext } from "../AuthContext";
-import ContextPasteleria from "../PasteleriaContext";
+import { PasteleriaContext } from "../PasteleriaContext";
+import axios from "axios";
 
 export default function Inicio() {
   const { iniciarSesion } = useContext(AuthContext);
-  const { setUsuario } = useContext(ContextPasteleria);
+  const { setUsuario } = useContext(PasteleriaContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -17,19 +17,30 @@ export default function Inicio() {
     event.preventDefault();
 
     try {
-      const response = await axios.get("./usuarios.json");
-      const users = response.data;
+      const response = await axios.get("/usuarios.json");
+      const usuarios = response.data;
 
-      const user = users.find(
-        (user) => user.correo === email && user.contraseña === password
-      );
+      const storedUsuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
-      if (user) {
+      const user = usuarios.find((usuario) => usuario.correo === email);
+
+      if (user && user.contraseña === password) {
         iniciarSesion(user);
         setUsuario(user);
         console.log("Inicio de sesión exitoso");
         setErrorMessage("");
         navigate("/home");
+      } else if (storedUsuarios.length > 0) {
+        const storedUser = storedUsuarios.find((usuario) => usuario.correo === email);
+        if (storedUser && storedUser.contraseña === password) {
+          iniciarSesion(storedUser);
+          setUsuario(storedUser);
+          console.log("Inicio de sesión exitoso");
+          setErrorMessage("");
+          navigate("/home");
+        } else {
+          setErrorMessage("Credenciales inválidas. Inténtalo de nuevo.");
+        }
       } else {
         setErrorMessage("Credenciales inválidas. Inténtalo de nuevo.");
       }
@@ -67,7 +78,3 @@ export default function Inicio() {
     </div>
   );
 }
-
-
-
-

@@ -1,10 +1,9 @@
-import CardPastel from "../components/Card";
-import Header from "../components/Header";
+import React from 'react';
+import CardPastel from '../components/Card';
 
 const Home = () => {
   return (
     <>
-      <Header />
       <CardPastel />
     </>
   );

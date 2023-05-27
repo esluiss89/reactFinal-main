@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export default function Registro() {
@@ -8,9 +8,18 @@ export default function Registro() {
   const [telefono, setTelefono] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [direccion, setDireccion] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [usuarios, setUsuarios] = useState([]);
+
+  useEffect(() => {
+    const usuariosGuardados = localStorage.getItem("usuarios");
+    if (usuariosGuardados) {
+      const usuariosParseados = JSON.parse(usuariosGuardados);
+      setUsuarios(usuariosParseados);
+    }
+  }, []);
 
   const handleRegistro = (event) => {
     event.preventDefault();
@@ -20,6 +29,7 @@ export default function Registro() {
       apellido,
       rut,
       telefono,
+      direccion,
       correo: email,
       contraseña: password,
       login: false,
@@ -37,12 +47,16 @@ export default function Registro() {
         userId: usuarios.length + 1,
       };
 
-      setUsuarios([...usuarios, newUser]);
+      const updatedUsuarios = [...usuarios, newUser];
+      setUsuarios(updatedUsuarios);
+
+      localStorage.setItem("usuarios", JSON.stringify(updatedUsuarios));
 
       setNombre("");
       setApellido("");
       setRut("");
       setTelefono("");
+      setDireccion("");
       setEmail("");
       setPassword("");
       setErrorMessage("");
@@ -81,6 +95,13 @@ export default function Registro() {
             value={telefono}
             onChange={(e) => setTelefono(e.target.value)}
             placeholder="Teléfono"
+            required
+          />
+          <input
+            type="text"
+            value={direccion}
+            onChange={(e) => setDireccion(e.target.value)}
+            placeholder="Dirección"
             required
           />
           <input
