@@ -68,3 +68,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+### adjunto link de deploy 
+
+https://master--stellar-jelly-bc0d8c.netlify.app/
+
+### adjunto link de video
+
+https://youtu.be/13HH8o-XAno
