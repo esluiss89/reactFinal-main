@@ -51,7 +51,7 @@ export default function Nav() {
           </>
         )}
         {usuario ? (
-          <button className="nav-link pink-button" onClick={handleCerrarSesion}>
+          <button className="nav-link btn btn-danger" onClick={handleCerrarSesion}>
             Cerrar Sesión
           </button>
         ) : (

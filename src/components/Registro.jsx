@@ -24,6 +24,13 @@ export default function Registro() {
   const handleRegistro = (event) => {
     event.preventDefault();
 
+    // Validar la longitud y los requisitos de la contraseña
+    if (password.length < 8 || !/[a-z]/.test(password) || !/[A-Z]/.test(password)) {
+      setErrorMessage("La contraseña debe tener al menos 8 caracteres y contener letras mayúsculas, letras minúsculas, números.");
+      setSuccessMessage("");
+      return;
+    }
+
     const nuevoUsuario = {
       nombre,
       apellido,
@@ -69,56 +76,79 @@ export default function Registro() {
       <div className="registro-container">
         <h2>Registro</h2>
         <form onSubmit={handleRegistro}>
-          <input
-            type="text"
-            value={nombre}
-            onChange={(e) => setNombre(e.target.value)}
-            placeholder="Nombre"
-            required
-          />
-          <input
-            type="text"
-            value={apellido}
-            onChange={(e) => setApellido(e.target.value)}
-            placeholder="Apellido"
-            required
-          />
-          <input
-            type="text"
-            value={rut}
-            onChange={(e) => setRut(e.target.value)}
-            placeholder="RUT"
-            required
-          />
-          <input
-            type="text"
-            value={telefono}
-            onChange={(e) => setTelefono(e.target.value)}
-            placeholder="Teléfono"
-            required
-          />
-          <input
-            type="text"
-            value={direccion}
-            onChange={(e) => setDireccion(e.target.value)}
-            placeholder="Dirección"
-            required
-          />
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Correo electrónico"
-            required
-          />
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Contraseña"
-            required
-          />
-          <button type="submit">Registrarse</button>
+          <div className="mb-3">
+            <input
+              type="text"
+              className="form-control"
+              value={nombre}
+              onChange={(e) => setNombre(e.target.value)}
+              placeholder="Nombre"
+              required
+            />
+          </div>
+          <div className="mb-3">
+            <input
+              type="text"
+              className="form-control"
+              value={apellido}
+              onChange={(e) => setApellido(e.target.value)}
+              placeholder="Apellido"
+              required
+            />
+          </div>
+          <div className="mb-3">
+            <input
+              type="text"
+              className="form-control"
+              value={rut}
+              onChange={(e) => setRut(e.target.value)}
+              placeholder="RUT"
+              required
+            />
+          </div>
+          <div className="mb-3">
+            <input
+              type="text"
+              className="form-control"
+              value={telefono}
+              onChange={(e) => setTelefono(e.target.value)}
+              placeholder="Teléfono"
+              required
+            />
+          </div>
+          <div className="mb-3">
+            <input
+              type="text"
+              className="form-control"
+              value={direccion}
+              onChange={(e) => setDireccion(e.target.value)}
+              placeholder="Dirección"
+              required
+            />
+          </div>
+          <div className="mb-3">
+            <input
+              type="email"
+              className="form-control"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Correo electrónico"
+              required
+            />
+          </div>
+          <div className="mb-3">
+            <input
+              type="password"
+              className="form-control"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Contraseña"
+              required
+            />
+          </div>
+          <button type="submit" className="btn btn-primary">
+            Registrarse
+          </button>
         </form>
         {errorMessage && <p>{errorMessage}</p>}
         {successMessage && <p>{successMessage}</p>}

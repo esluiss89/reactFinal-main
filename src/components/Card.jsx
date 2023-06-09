@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faHeart as faHeartRegular, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faHeart as faHeartRegular, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as faHeartSolid } from "@fortawesome/free-regular-svg-icons";
 import "./Components.css";
 import ContextPasteleria from "../PasteleriaContext";
@@ -12,24 +12,24 @@ const CardPastel = () => {
   const [mensaje, setMensaje] = useState("");
   const [botonDesactivado, setBotonDesactivado] = useState({});
   const [favoritos, setFavoritos] = useState([]);
-  const [filtroLetra, setFiltroLetra] = useState("");
+  const [ordenPrecio, setOrdenPrecio] = useState("");
   const [pastelesLocalStorage, setPastelesLocalStorage] = useState([]);
-  const { usuario } = useAuth(); 
+  const { usuario } = useAuth();
 
   useEffect(() => {
-    const savedPasteles = localStorage.getItem('pasteles');
-    const savedFavoritos = localStorage.getItem('favoritos');
+    const savedPasteles = localStorage.getItem("pasteles");
+    const savedFavoritos = localStorage.getItem("favoritos");
     if (savedPasteles) {
       setPastelesLocalStorage(JSON.parse(savedPasteles));
     } else {
-      fetch('ruta-al-archivo/pasteles.json')
-        .then(response => response.json())
-        .then(data => {
+      fetch("/pasteles.json")
+        .then((response) => response.json())
+        .then((data) => {
           setPastelesLocalStorage(data);
-          localStorage.setItem('pasteles', JSON.stringify(data));
+          localStorage.setItem("pasteles", JSON.stringify(data));
         })
-        .catch(error => {
-          console.error('Error al cargar los datos desde el JSON:', error);
+        .catch((error) => {
+          console.error("Error al cargar los datos desde el JSON:", error);
         });
     }
     if (savedFavoritos) {
@@ -38,10 +38,10 @@ const CardPastel = () => {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('favoritos', JSON.stringify(favoritos));
+    localStorage.setItem("favoritos", JSON.stringify(favoritos));
   }, [favoritos]);
 
-  const filtrarPasteles = (pasteles, filtro, filtroLetra) => {
+  const filtrarPasteles = (pasteles, filtro, ordenPrecio) => {
     let pastelesFiltrados = pasteles;
 
     if (filtro === "favoritos") {
@@ -50,9 +50,61 @@ const CardPastel = () => {
       );
     }
 
-    if (filtroLetra) {
-      pastelesFiltrados = pastelesFiltrados.filter((pastel) =>
-        pastel.name.toLowerCase().startsWith(filtroLetra.toLowerCase())
+    if (filtro === "chocolate") {
+      pastelesFiltrados = pasteles.filter((pastel) =>
+        pastel.name.toLowerCase().includes("chocolate")
+      );
+    }
+
+    if (filtro === "vainilla") {
+      pastelesFiltrados = pasteles.filter((pastel) =>
+        pastel.name.toLowerCase().includes("vainilla")
+      );
+    }
+
+    if (filtro === "frutos rojos") {
+      pastelesFiltrados = pasteles.filter((pastel) =>
+        pastel.name.toLowerCase().includes("frutos rojos")
+      );
+    }
+    
+    if (filtro === "fresa") {
+      pastelesFiltrados = pasteles.filter((pastel) =>
+        pastel.name.toLowerCase().includes("fresa")
+      );
+    }
+
+    if (filtro === "zanahoria") {
+      pastelesFiltrados = pasteles.filter((pastel) =>
+        pastel.name.toLowerCase().includes("zanahoria")
+      );
+    }
+
+    if (filtro === "manzana") {
+      pastelesFiltrados = pasteles.filter((pastel) =>
+        pastel.name.toLowerCase().includes("manzana")
+      );
+    }
+
+    if (filtro === "limon") {
+      pastelesFiltrados = pasteles.filter((pastel) =>
+        pastel.name.toLowerCase().includes("limon")
+      );
+    }
+
+    if (filtro === "nueces") {
+      pastelesFiltrados = pasteles.filter((pastel) =>
+        pastel.name.toLowerCase().includes("nueces")
+      );
+    }
+
+    if (ordenPrecio === "ascendente") {
+      pastelesFiltrados = pastelesFiltrados.sort(
+        (a, b) => parseFloat(a.price) - parseFloat(b.price)
+      );
+    } else if (ordenPrecio === "descendente") {
+      pastelesFiltrados = pastelesFiltrados.sort(
+        (a, b) => parseFloat(b.price) - parseFloat(a.price)
       );
     }
 
@@ -62,7 +114,7 @@ const CardPastel = () => {
   const pastelesFiltrados = filtrarPasteles(
     [...pastelesLocalStorage],
     filtro,
-    filtroLetra
+    ordenPrecio
   );
 
   const handleAñadir = (pastel) => {
@@ -77,20 +129,22 @@ const CardPastel = () => {
   };
 
   const handleEliminar = (id) => {
-    const nuevosPasteles = pastelesLocalStorage.filter((pastel) => pastel.id !== id);
+    const nuevosPasteles = pastelesLocalStorage.filter(
+      (pastel) => pastel.id !== id
+    );
     setPastelesLocalStorage(nuevosPasteles);
-    localStorage.setItem('pasteles', JSON.stringify(nuevosPasteles));
+    localStorage.setItem("pasteles", JSON.stringify(nuevosPasteles));
   };
 
   const handleFavorito = (pastel) => {
     if (favoritos.includes(pastel.id)) {
       const nuevosFavoritos = favoritos.filter((id) => id !== pastel.id);
       setFavoritos(nuevosFavoritos);
-      localStorage.setItem('favoritos', JSON.stringify(nuevosFavoritos));
+      localStorage.setItem("favoritos", JSON.stringify(nuevosFavoritos));
     } else {
       const nuevosFavoritos = [...favoritos, pastel.id];
       setFavoritos(nuevosFavoritos);
-      localStorage.setItem('favoritos', JSON.stringify(nuevosFavoritos));
+      localStorage.setItem("favoritos", JSON.stringify(nuevosFavoritos));
     }
   };
 
@@ -101,14 +155,24 @@ const CardPastel = () => {
           <select value={filtro} onChange={(e) => setFiltro(e.target.value)}>
             <option value="">Todos los Pasteles</option>
             <option value="favoritos">Favoritos</option>
+            <option value="chocolate">Chocolate</option>
+            <option value="vainilla">Vainilla</option>
+            <option value="frutos rojos">Frutos Rojos</option>
+            <option value="fresa">Fresa</option>
+            <option value="zanahoria">Zanahoria</option>
+            <option value="manzana">Manzana</option>
+            <option value="limon">Limón</option>
+            <option value="nueces">Nueces</option>
           </select>
-          <input
-            type="text"
-            placeholder="Filtrar por Letra"
-            value={filtroLetra}
-            onChange={(e) => setFiltroLetra(e.target.value)}
-          />
-          <FontAwesomeIcon icon={faSearch} className="filtro-icono" />
+
+          <select
+            value={ordenPrecio}
+            onChange={(e) => setOrdenPrecio(e.target.value)}
+          >
+            <option value="">Ordenar por Precio</option>
+            <option value="ascendente">Menor a Mayor</option>
+            <option value="descendente">Mayor a Menor</option>
+          </select>
         </div>
       </div>
       <div className="contenedorPastel">
@@ -135,14 +199,21 @@ const CardPastel = () => {
                         className="buttonEliminar"
                         onClick={() => handleEliminar(pastel.id)}
                       >
-                        <FontAwesomeIcon icon={faTrash} className="trash-icon" />
+                        <FontAwesomeIcon
+                          icon={faTrash}
+                          className="trash-icon"
+                        />
                       </button>
                       <button
                         className="buttonAnadir"
                         onClick={() => handleFavorito(pastel)}
                       >
                         <FontAwesomeIcon
-                          icon={favoritos.includes(pastel.id) ? faHeartRegular : faHeartSolid}
+                          icon={
+                            favoritos.includes(pastel.id)
+                              ? faHeartRegular
+                              : faHeartSolid
+                          }
                           className="heart-icon"
                         />
                       </button>
